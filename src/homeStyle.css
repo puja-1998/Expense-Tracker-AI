@@ -1,0 +1,35 @@
+
+.detailsDivStyle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    height: 30px;
+    width: 95%;
+    margin:10px 20px ;
+    color: black;
+    padding: 0 30px;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for Webkit (Chrome, Safari) */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for Firefox */
+  .scrollbar-hide {
+    scrollbar-width: none;
+  }
+
+  .hover-effect:hover{
+    color: red;
+  }
+
+  .containerStyle{
+    height: 100vh;
+  }

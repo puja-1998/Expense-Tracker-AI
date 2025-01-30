@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <link href="./src/output.css" rel="stylesheet">
+</head>
+<body class="bg-[#1D2A35] h-auto">
+
+  <!-- Login Page -->
+  <div class="loginPage flex justify-between bg-[#193D3D] mt-10 mx-30 h-[520px] text-white ">
+    <div class="loginForm w-[50%] flex justify-center  flex-col items-center">
+      <div class="flex justify-center  flex-col items-center mb-10">
+            <h1 class="text-[48px] font-semibold">Expense Tracker AI</h1>
+            <p class="text-[32px] font-medium">Login</p>
+      </div>
+        <form action="">
+            
+            <label for="loginEmail" class="text-[18px] font-medium">Email</label><br>
+            <input required type="email" name="email" id="loginEmail" class=" w-96 h-8 rounded-lg bg-white text-black text-[18px] font-medium "><br><br>
+            <label for="loginPassword" class="text-[18px] font-medium">Password</label><br>
+            <input required type="password" name="password" id="loginPassword"class=" w-96 h-8 rounded-lg bg-white text-black text-[18px] font-medium"><br><br>
+            <!-- <input type="button" value="LOGIN">
+            <input type="button" value="SIGN UP"> -->
+            <div class="btn flex justify-between mx-10 gap-10 font-bold ">
+                <button id="loginBtn" class="bg-[#49BDA3] h-10 w-28 rounded-md hover:bg-[#49bda4be] transition ease-in cursor-pointer">LOGIN</button>
+                <button  id="signUpBtn" class="bg-[#49BDA3] h-10 w-28 rounded-md hover:bg-[#49bda4be] transition ease-in cursor-pointer">SIGN UP</button>
+            </div>
+        </form>
+    </div>
+    <div class="loginimg  w-[50%] ">
+        <img class="h-[520px] w-full" src="https://braveanarchist.github.io/Expense-Tracker/images/authencation.jpeg" alt="Login Image">
+    </div>
+  </div>
+
+<!-- Registered Page -->
+  <!-- <div class="loginPage flex justify-between bg-[#193D3D] mt-10 mx-30 h-[530px] text-white  ">
+    <div class="loginForm w-[50%] flex justify-center  flex-col items-center">
+      <div class="flex justify-center  flex-col items-center">
+            <h1 class="text-[40px] font-semibold">Expense Tracker AI</h1>
+            <h2 class="text-[25.6px] font-medium">Sign Up</h2>
+      </div>
+        <form action="" >
+          <label for="fname" class="text-[18px] font-medium">First Name</label><br>
+          <input type="text" name="fname" id="fname" class=" w-96 h-8 rounded-lg bg-white mb-2 text-black text-[18px] font-medium"><br>
+          
+          <label for="lname" class="text-[18px] font-medium">Last Name</label><br>
+            <input type="text" name="lname" id="email" class=" w-96 h-8 rounded-lg bg-white mb-2 text-black text-[18px] font-medium"><br>
+        
+            <label for="Email" class="text-[18px] font-medium">Email</label><br>
+            <input type="email" name="email" id="email" class=" w-96 h-8 rounded-lg bg-white mb-2 text-black text-[18px] font-medium"><br>
+
+            <label for="password" class="text-[18px] font-medium">Password</label><br>
+            <input type="password" name="password" id="password"class=" w-96 h-8 rounded-lg bg-white mb-3 text-black text-[18px] font-medium"><br>
+
+            <label for="rePassword" class="text-[18px] font-medium">Confirm Password</label><br>
+            <input type="password" name="rePassword" id="rePassword"class=" w-96 h-8 rounded-lg bg-white mb-4 text-black text-[18px] font-medium"><br><br>
+           
+            <div class="btn flex gap-25 font-bold ">
+                <button class="bg-[#49BDA3] h-10 w-28 rounded-md hover:bg-[#49bda4be] transition ease-in cursor-pointer">REGISTER</button>
+                <button class="bg-[#49BDA3] h-10 w-28 rounded-md hover:bg-[#49bda4be] transition ease-in cursor-pointer">LOGIN</button>
+            </div>
+        </form>
+    </div>
+    <div class="loginimg  w-[50%] ">
+        <img class="h-[530px] w-full" src="https://braveanarchist.github.io/Expense-Tracker/images/authencation.jpeg" alt="Login Image">
+    </div>
+  </div> -->
+
+  <!-- Home Page -->
+
+<script src="./src/index.js"></script>
+</body>
+</html>

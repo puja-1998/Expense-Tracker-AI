@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <link href="./output.css" rel="stylesheet">
+  <link rel="stylesheet" href="./homeStyle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body class="bg-[#2B4256] h-auto text-white border">
+    <script src="https://js.instamojo.com/v1/checkout.js"></script>
+
+    <script>
+        /* Start client-defined Callback Handler Functions */
+        function onOpenHandler() {
+            alert('Payments Modal is Opened');
+        }
+
+        function onCloseHandler() {
+            alert('Payments Modal is Closed');
+        }
+
+        function onPaymentSuccessHandler(response) {
+            alert('Payment Success');
+            console.log('Payment Success Response', response);
+        }
+
+        function onPaymentFailureHandler(response) {
+            alert('Payment Failure');
+            console.log('Payment Failure Response', response);
+        }
+        /* End client-defined Callback Handler Functions */
+
+        /* Configuring Handlers */
+        Instamojo.configure({
+            handlers: {
+                onOpen: onOpenHandler,
+                onClose: onCloseHandler,
+                onSuccess: onPaymentSuccessHandler,
+                onFailure: onPaymentFailureHandler
+            }
+        });
+
+        function onButtonClick() {
+            Instamojo.open('https://test.instamojo.com/@satan999/');
+        }
+    </script>
+
+ <!-- check Tax -->
+ <div id="checkTax" class="h-full bg-black opacity-10"></div>
+  <!-- Nav -->
+  <div class="nav fixed top-0  w-[100%] flex justify-between items-center h-20 bg-[#282A35] px-32 text-[18px] font-medium text-gray-400 ">
+    <a href="#here" class="hover:text-red-400">Charts</a>
+
+   
+        <a href="#" class="hover:text-red-400 flex  justify-center items-center">
+            <i class="material-icons">home</i>  
+            <p>Home</p>
+        </a>
+
+    <div class="home flex flex-col justify-center items-center"  id="AskAi">
+        <a href="" class="hover:text-red-400">
+            <img class="h-14 w-15 rounded-full" src="https://braveanarchist.github.io/Expense-Tracker/images/normal.jpg" alt="AI Image">
+            <p class="text-sm font-normal">Ask AI</p>
+        </a>
+    </div>
+
+    <!-- <a href="#" class="hover:text-red-400">LogOut</a> -->
+    <button id="LogOut" class="hover:text-red-400 cursor-pointer">LogOut</button>
+  </div>
+
+  <!-- popup -->
+  <!-- <div id="beginning" style="position: absolute; top:0;z-index: -1;"></div>
+    <div class="pop animate__animated animate__fadeInRightBig hidden ">
+        <div class="modal-content p-[3vh] sm:w-[98%] md:w-[95%] lg:w-[90%] h-[80%]">
+            <div class="flex">
+                <div id="AiImg" class="h-[15vh] w-[9.5vw] rounded-full m-[1vw]">
+                    <img src="https://braveanarchist.github.io/Expense-Tracker/images/tax.gif" alt="" class=" w-[100%] h-[100%] rounded-full " id="Ai">
+                </div>
+                <div id="AiChat"
+                    class="animate__animated animate__fadeIn bg-zinc-900 text-white w-[100%] p-[1vh]  rounded-lg h-[46vh] mb-[4vh] overflow-y-scroll">
+                </div>
+            </div>
+            <div class="flex">
+                <button id="advice" class="w-[13%] p-[1vh] border m-[1vh] bg-[#001861] rounded-lg sm:text-xs sm:overflow-y-scroll md:text-sm lg:text-sm xl:text-base">Send income/expense
+                    data to get financial advice</button>
+                <textarea id="AiInput" cols="10" rows="4" class="w-[100%] rounded-xl text-black p-[1vh]"></textarea>
+                <br>
+            </div>
+            <div class="flex justify-around">
+                <button id="send" class="hover-button3 p-[1vh] border m-[1vh]">Send</button>
+                <button id="close" class="hover-button3 p-[1vh] border m-[1vh]">Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="pop2 animate__animated animate__fadeInLeftBig hidden">
+        <div class="modal-content2 p-[3vh]">
+            <div class="flex">
+                <div id="AiImg2" class="pic h-[15vh] w-[9.5vw] rounded-full m-[1vw]"><img src="https://braveanarchist.github.io/Expense-Tracker/images/tax.gif" alt=""
+                        class="w-[100%] h-[100%] rounded-full"></div>
+                <div id="AiChat2"
+                    class="bg-zinc-900 text-white w-[100%] p-[1vh]  rounded-lg h-[46vh] mb-[4vh] overflow-y-scroll">
+                </div>
+            </div>
+            <div class="flex justify-around">
+                <button id="send2" class="hover-button3 p-[1vh] border m-[1vh]" onclick="onButtonClick()">Pay</button>
+                <button id="close2" class="hover-button3 p-[1vh] border m-[1vh]">Close</button>
+            </div>
+        </div>
+    </div> -->
+
+  <!-- Net Balance -->
+   <div class=" px-30 mt-32" id="start">
+    <h1 class="text-[20px] font-normal">Net Balance</h1>
+    <div class="flex justify-between">
+       <h1 class="text-[48px] font-normal">₹<span id="netBalance">0</span></h1>
+       <canvasc id="chartCanvas" class="border w-[800px] h-12 rounded-full"  width="800" height="10"></canvas>
+    </div>
+   </div>
+
+   <!-- income & ixpenses -->
+   <div class="flex justify-between items-center px-62">
+    <div class="text-green-500">
+        <p class="text-[20px] font-normal ">Income</p>
+        <p class="text-[24px] font-normal" >₹<span id="income">0</span></p>
+   </div>
+   <div class="text-red-500">
+    <p class="text-[20px] font-normal">Expenses</p>
+    <p class="text-[24px] font-normal" >₹<span id="expenses">0</span></p>
+    </div>
+       <button id="check-Tax" class="h-10 w-24 rounded-lg bg-[#AFAD4C] flex justify-center items-center cursor-pointer hover:bg-[#a8af4cbe] transition ease-in">Check Tax</button>
+   </div>
+
+   <!-- Transactions -->
+    <div class="flex justify-between items-center px-30 mt-10">
+        <div class="">
+            <p class="text-[24px] font-normal">Transactions</p>
+            <p class="text-gray-500 text-[16px] font-normal" id="trans">You had 0 incomes and 0 expenses</p>
+        </div>
+        <div class="">
+            <label for="selectType">Type</label>
+            <select name="select" id="selectType" class=" p-1 bg-[#D9EEE1] rounded-lg text-black pl-2">
+                <option value="Income">Income</option>
+                <option value="Expenses">Expenses</option>
+            </select>
+        </div>
+        <input type="text" id="Description" placeholder="Description" class="h-10 w-64 bg-[#D9EEE1] rounded-lg text-gray-700 pl-2">
+        <input type="number" id="amount" placeholder="Amount" class="h-10 w-40 bg-[#D9EEE1] rounded-lg text-gray-700 pl-2">
+        <button id="add" class="h-10 w-fit p-2 rounded-lg bg-green-400 flex justify-center items-center cursor-pointer hover:bg-green-600 transition ease-in">+ Add</button>
+    </div>
+
+    <!-- Container -->
+     <div id="container" class="  h-[350px] w-[83%] bg-[#193D3D] mx-30  overflow-y-auto scrollbar-hide mt-5 mb-24 rounded-lg shadow-[0_4px_10px_5px_rgb(113,173,211)]">
+    </div>
+
+    <!-- chart -->
+    <div id="here" class="mb-[16vh]"></div>
+    <div id="cha" class="bg-gray-700 mb-[4vh] p-[1vh] mt-[2vh] hidden">
+        <div class="chart-container mb-[4vh]" style="position: relative; height:40vh; width:80vw">
+            <canvas id="pie"></canvas>
+        </div>
+
+        <div class="chart-container mb-[4vh]" style="position: relative; height:40vh; width:80vw">
+            <canvas id="line"></canvas>
+        </div>
+        <div class="chart-container mb-[4vh]" style="position: relative; height:40vh; width:80vw">
+            <canvas id="bar"></canvas>
+        </div>
+    </div>
+
+    <script type="importmap">
+        {   "imports": {
+              "@google/generative-ai": "https://esm.run/@google/generative-ai"
+            }
+          }
+    </script>
+    <script src="./home.js"></script>
+</body>
+</html>
